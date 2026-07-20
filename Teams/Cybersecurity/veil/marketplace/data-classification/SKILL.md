@@ -9,6 +9,10 @@ fulfills_catalog_entry: data-classification — PUBLIC/INTERNAL/CONFIDENTIAL/RES
 note_from_build: This is a verbatim marketplace adoption, unaltered. 4-tier classification (PUBLIC / INTERNAL / CONFIDENTIAL / RESTRICTED), ISO 27001 A.5.12 aligned, CIA triad mapping, decision tree for classification, GDPR/privacy classification for special category data. Supplementary: Hack23 data-classification skill (implementation variant with handling matrix) available in the same collection.
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Examples:** - Published marketing materials - Public press releases - Public website content - Published research…"
+triggers: [data classification]
 ---
 
 # Classification Policy

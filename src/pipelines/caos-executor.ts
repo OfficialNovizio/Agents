@@ -174,7 +174,7 @@ export async function executeCaosPipeline(
           query: task,
           agentId: stage.agentId,
           dept: stage.agentDept,
-          retrievalMode: mode,
+          retrievalMode: (mode as 'standard' | 'agentic' | 'graph'),
         })
 
         if (ragResult.success) {

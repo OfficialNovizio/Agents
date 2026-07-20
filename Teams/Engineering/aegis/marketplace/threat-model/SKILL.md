@@ -8,6 +8,10 @@ assigned_agent: aegis (Engineering / Application Security)
 role_in_aegis: the threat-modeling machinery — aegis's custom skills decide when models are built/refreshed and how they scope the vuln-pipeline; this skill is how a model is produced
 includes: schema.md (copied verbatim alongside); interview.md / bootstrap.md / _lib/checkpoint.py NOT copied — fetch from source repo at deployment (skill reads them at runtime)
 note: content below the line is verbatim from source — do not edit; improvements belong in aegis's custom skills. The skill's own Step 0 safety preamble (static analysis only, never execute target code) is charter-aligned and stands as written
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "A threat model answers **'what could go wrong with this system, who would do it, and what should we do about it?'** independently of whether any specific bug has been found yet."
+triggers: [threat model]
 ---
 
 # threat-model

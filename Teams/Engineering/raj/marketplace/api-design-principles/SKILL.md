@@ -12,6 +12,10 @@ provenance:
     (resource modeling, pagination patterns, GraphQL schema/DataLoader, HATEOAS). Conflicts resolve
     to api-standards. Method unchanged.
 assigned_agent: raj (Engineering / Backend & APIs)
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "REST and GraphQL design principles for intuitive, scalable, maintainable APIs."
+triggers: [api design principles]
 ---
 
 # API Design Principles

@@ -11,6 +11,10 @@ provenance:
     Tooling examples (npm, eslint, tsc, Zod, husky) marked as illustrative — actual commands bind via
     dev/stack-profile per business. Boundaries section added. Method unchanged.
 assigned_agent: dev (Engineering / Lead Developer)
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Git is your safety net."
+triggers: [git workflow and versioning]
 ---
 
 # Git Workflow and Versioning

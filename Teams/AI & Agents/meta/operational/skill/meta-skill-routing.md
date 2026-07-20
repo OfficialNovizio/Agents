@@ -22,3 +22,12 @@ request
 
 ## Precedence
 fleet-governance wins ties (a governance question outranks a bookkeeping one); fleet-registry never decides, only records.
+
+## Machine-Readable Routing (compiled)
+
+```yaml
+# yvon-compile: machine-readable routing — prose above remains canonical for humans
+skills:
+  task-dispatch:
+    handoffs: entry point for all multi-agent work — discovery once, spec to store/tasks/, workers receive shards only; architecture standards govern builds, dispatch governs work
+```

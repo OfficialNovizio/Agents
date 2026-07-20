@@ -36,6 +36,8 @@ SHARED_OS = os.path.join(PROJECT_ROOT, 'Teams', 'Shared OS', 'logical')
 TEAMS = os.path.join(PROJECT_ROOT, 'Teams')
 
 sys.path.insert(0, RAG_DIR)
+sys.path.insert(0, os.path.join(RAG_DIR, 'core'))
+sys.path.insert(0, os.path.join(RAG_DIR, 'harness'))
 sys.path.insert(0, SHARED_OS)
 
 from bridge import handle_retrieve, handle_formula, handle_feedback, detect_and_execute_formulas

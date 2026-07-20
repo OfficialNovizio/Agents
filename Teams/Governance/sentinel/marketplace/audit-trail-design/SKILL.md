@@ -10,6 +10,10 @@ fulfills_catalog_entry: audit-trail-method (VYON_Skills_Catalog_Full_v2.html, se
 assigned_agent: sentinel (Governance / Compliance Monitor)
 portable: true — method is business-agnostic; regulatory retention figures cited are examples of the method, jurisdiction specifics remain operator-supplied
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "No user-provided values are used in commands or file paths."
+triggers: [audit trail design]
 ---
 
 <!--

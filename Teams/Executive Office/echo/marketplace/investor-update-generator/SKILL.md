@@ -8,6 +8,10 @@ fulfills_catalog_entry: investor-update-best-practices (VYON_Skills_Catalog_Full
 assigned_agent: echo (Executive Office / Investor Relations)
 date_added: 2026-07-02
 includes: scripts/investor_update_validator.py (tested, works as-is), assets/investor_update_template.md, references/what_makes_good_updates.md — all pulled from source and copied in full, not just the main SKILL.md
+# yvon-compile metadata (additive — body remains verbatim per marketplace convention)
+tier: 2
+description: "Validates a draft investor update against a rubric of what makes updates work — cadence, metrics selection, ask formulation — with a tested validator script"
+triggers: [investor update, validate update, check my update, investor email]
 ---
 
 <!--

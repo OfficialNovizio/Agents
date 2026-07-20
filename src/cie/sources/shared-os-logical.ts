@@ -202,8 +202,3 @@ export function getAllAgentScriptMappings(): Record<string, string[]> {
   return result
 }
 
-// ─── Add shared_os_logical to KnowledgeSource type ─────────────────
-
-declare module '../types' {
-  export type KnowledgeSource = KnowledgeSource | 'shared_os_logical'
-}

@@ -55,3 +55,18 @@ See `operational/commands/vista-commands.md` for the specific precedence rules (
 ## Fallback
 
 If a request doesn't fit anywhere in this map, ask what's actually being asked rather than forcing it into the nearest skill — consistent with each skill's own clarify-first guidance.
+
+## Machine-Readable Routing (compiled)
+
+```yaml
+# yvon-compile: machine-readable routing — prose above remains canonical for humans
+skills:
+  north-star-metric:
+    handoffs: defines the goal rice-prioritization calibrates against; run before rice if no NSM exists
+  rice-prioritization:
+    handoffs: needs the NSM for Stage 1 impact calibration; feeds roadmap-sync's committed roadmap
+  roadmap-sync:
+    handoffs: runs only against a committed roadmap; cut/defer/accelerate decisions escalate to marcus
+  okr-quality-checker:
+    handoffs: grades okr-cascade output — findings route back to marcus as findings, never redrafts
+```

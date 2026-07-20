@@ -12,6 +12,10 @@ assigned_agent: rio (Brand Studio / Ads)
 portable: true — tool-agnostic strategy with platform guidance, no company specifics
 pending: source's references/platform-guide.md (funnel frameworks, frequency capping detail, budget allocation) not copied — named explicitly, retrievable from the source repo; the SKILL.md is self-contained for normal operation
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Help the user plan and execute retargeting campaigns — website visitor retargeting, cart abandonment recovery, dynamic product ads, cross-channel remarketing, and audience segmentation."
+triggers: [sales retargeting]
 ---
 
 <!--

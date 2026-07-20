@@ -10,13 +10,14 @@ import type { TaskType, TaskProfile } from './types';
 // Pattern definitions — each TaskType maps to a department domain.
 // ---------------------------------------------------------------------------
 
+// Use RegExp constructor to avoid forward-slash issues with A/B in regex literals
 const TYPE_PATTERNS: Record<TaskType, RegExp> = {
   engineering:  /\b(?:error|crash|build|route|API|database|schema|migration|deploy|component|layout|CSS|responsive|tailwind|backend|frontend|server|endpoint|query|import|refactor|performance|latency|memory)\b/i,
   strategy:     /\b(?:decide|direction|OKR|priority|investor|revenue|valuation|pitch|narrative|roadmap|funding|round|term sheet|cap table)\b/i,
   governance:   /\b(?:board|fiduciary|constitution|compliance|audit|ruling|precedent|veto|oversight|policy|charter|gate)\b/i,
   brand_marketing: /\b(?:campaign|copyright|brand|social|ad|content|copy|headline|story|voice|design|color|palette|layout|typography|SEO|growth|funnel|conversion|creative|asset|visual|prompt|video|UGC|cinematic)\b/i,
   cybersecurity: /\b(?:security|breach|vulnerability|CVE|threat|attack|exploit|firewall|auth|token|secret|encryption|privacy|GDPR|CCPA|DLP|phishing|ransomware|incident|forensic|patch)\b/i,
-  product_analytics: /\b(?:experiment|A/B|metric|retention|churn|funnel|cohort|conversion|user research|survey|SUS|usability|sample|significance|power|MDE|PMF|pricing|WTP|elasticity)\b/i,
+  product_analytics: new RegExp('\\b(?:experiment|A\\/B|metric|retention|churn|funnel|cohort|conversion|user research|survey|SUS|usability|sample|significance|power|MDE|PMF|pricing|WTP|elasticity)\\b', 'i'),
   ai_agents:    /\b(?:agent|model|LLM|prompt|prototype|skill|fleet|automation|orchestration|benchmark|evaluation|adoption|gateway)\b/i,
   general:      /(?:)/i,
 };
@@ -27,7 +28,7 @@ const EXTRACT_PATTERNS: Record<TaskType, RegExp> = {
   governance:   /\b(?:board|fiduciary|constitution|compliance|audit|ruling|precedent|veto|oversight|policy|charter|gate)\b/gi,
   brand_marketing: /\b(?:campaign|copyright|brand|social|ad|content|copy|headline|story|voice|design|color|palette|layout|typography|SEO|growth|funnel|conversion|creative|asset|visual|prompt|video|UGC|cinematic)\b/gi,
   cybersecurity: /\b(?:security|breach|vulnerability|CVE|threat|attack|exploit|firewall|auth|token|secret|encryption|privacy|GDPR|CCPA|DLP|phishing|ransomware|incident|forensic|patch)\b/gi,
-  product_analytics: /\b(?:experiment|A/B|metric|retention|churn|funnel|cohort|conversion|research|survey|SUS|usability|sample|significance|power|MDE|PMF|pricing|WTP|elasticity)\b/gi,
+  product_analytics: new RegExp('\\b(?:experiment|A\\/B|metric|retention|churn|funnel|cohort|conversion|research|survey|SUS|usability|sample|significance|power|MDE|PMF|pricing|WTP|elasticity)\\b', 'gi'),
   ai_agents:    /\b(?:agent|model|LLM|prompt|prototype|skill|fleet|automation|orchestration|benchmark|evaluation|adoption|gateway)\b/gi,
   general:      /(?:)/gi,
 };

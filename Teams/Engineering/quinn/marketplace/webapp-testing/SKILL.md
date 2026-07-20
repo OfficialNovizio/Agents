@@ -8,6 +8,10 @@ assigned_agent: quinn (Engineering / QA)
 role_in_quinn: the Playwright machinery behind browser-verification's RELEASE gate — quinn's custom skill decides what to verify and what passes; this skill is how the browser is driven
 includes: scripts/with_server.py (copied); examples/ NOT copied — fetch from source repo at deployment if needed
 note: content below the line is verbatim from source — do not edit; improvements belong in quinn's custom/browser-verification wrapper
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "To test local web applications, write native Python Playwright scripts."
+triggers: [webapp testing]
 ---
 
 # Web Application Testing

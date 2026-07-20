@@ -11,6 +11,10 @@ assigned_agent: weave (Brand Studio / Storytelling)
 portable: true — pure craft content, no company specifics
 includes: references/guest-insights.md (all 50 insights from 30 guests) — copied in full
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Help the user craft compelling narratives that make their brand memorable using techniques from 30 product leaders and storytelling experts."
+triggers: [brand storytelling]
 ---
 
 <!--

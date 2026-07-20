@@ -11,6 +11,10 @@ assigned_agent: pixel (Brand Studio / Production)
 portable: true — model-agnostic prompt craft, no company specifics
 pending: source's style-library/ (4 files) and model-specifics.md not copied — named explicitly, retrievable from the source repo; the SKILL.md is self-contained for normal operation
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Claude cannot generate images."
+triggers: [content image]
 ---
 
 <!--

@@ -26,8 +26,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "cd rag && python3 injector.py --test && python3 strategy.py --test && python3 destructor.py --test && python3 harness.py --test && python3 unified_pipeline.py --test",
-    "test:full": "cd rag && python3 injector.py --test && python3 strategy.py --test && python3 destructor.py --test && python3 harness.py --test && python3 verifier.py --test && python3 progressive_disclosure.py --test && python3 field_monitor.py --test && python3 self_improver.py --test && python3 unified_pipeline.py --test && python3 eval_judge.py --test && python3 quality_flywheel.py --test && python3 e2e_validation.py",
+    "test": "python3 rag/test_runner.py",
+    "test:full": "python3 rag/test_runner.py",
     "prepublishOnly": "npm run build",
     "prepare": "npm run build"
   },

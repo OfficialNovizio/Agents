@@ -12,6 +12,10 @@ provenance:
     custom/migration-discipline. Content otherwise unchanged.
 assigned_agent: dana (Engineering / Data Architecture)
 volatility: tool syntax dated 2026-07 — verify against current tool docs when a playbook is >6 months old
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Safe, reversible database schema changes for production systems."
+triggers: [database migrations]
 ---
 
 # Database Migration Patterns

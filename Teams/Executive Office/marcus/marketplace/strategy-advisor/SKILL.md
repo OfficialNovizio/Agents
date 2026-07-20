@@ -7,6 +7,10 @@ copied_verbatim: true
 fulfills_catalog_entry: good-strategy-bad-strategy (VYON_Skills_Catalog_Full_v2.html, marcus/Executive Office)
 assigned_agent: marcus (Executive Office / Orchestrator)
 date_added: 2026-07-02
+# yvon-compile metadata (additive — body remains verbatim per marketplace convention)
+tier: 2
+description: "Structured strategic evaluation for open-ended strategy questions: situation analysis, options with trade-offs, a recommendation, implementation roadmap, and success metrics"
+triggers: [strategy advisor, strategic question, should we enter, evaluate this strategy, is this worth doing]
 ---
 
 <!--

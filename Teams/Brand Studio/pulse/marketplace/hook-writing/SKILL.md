@@ -10,6 +10,10 @@ fulfills_catalog_entry: none — pulse is the new v3 agent; this fulfills its pl
 assigned_agent: pulse (Brand Studio / Social Media)
 portable: true — attention psychology, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "A methodology for designing hooks that capture the viewer within the first 5–10 seconds."
+triggers: [hook writing]
 ---
 
 <!--

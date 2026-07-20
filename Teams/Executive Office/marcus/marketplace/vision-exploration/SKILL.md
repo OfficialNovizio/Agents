@@ -8,6 +8,10 @@ translated_to: English (2026-07-02, faithful translation, no content cut)
 fulfills_catalog_entry: vision (VYON_Skills_Catalog_Full_v2.html, marcus/Executive Office)
 assigned_agent: marcus (Executive Office / Orchestrator)
 date_added: 2026-07-02
+# yvon-compile metadata (additive — body remains verbatim per marketplace convention)
+tier: 2
+description: "Articulates a long-horizon end-state vision and narrative before goals exist — the upstream input okr-cascade cascades from"
+triggers: [vision exploration, long-term vision, end-state vision, where should this be in five years]
 ---
 
 <!--

@@ -10,6 +10,10 @@ fulfills_catalog_entry: canvas-design (VYON_Skills_Catalog_Full_v2.html, atlas/B
 assigned_agent: atlas (Brand Studio / Art Director)
 portable: true — pure composition craft, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Choose the grid based on the content…"
+triggers: [layout composition]
 ---
 
 <!--

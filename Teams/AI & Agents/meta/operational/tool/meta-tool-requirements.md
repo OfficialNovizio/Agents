@@ -11,3 +11,9 @@
 | fleet-governance | file read/write (proposal docs); message routing to board/operator | run the Rail 3 flow |
 
 All writes meta performs are to its OWN assets (registry, proposals). meta never writes into another agent's folder — fixes ship via anneal's proposals.
+
+## Addendum — task-dispatch (added 2026-07-20)
+
+| Skill | Required | Optional | Source line |
+|---|---|---|---|
+| task-dispatch | File read/write (writes TASK-SPEC yaml to store/tasks/) | — | protocol step 5: "Write the spec to store/tasks/TS-<seq>.yaml" |

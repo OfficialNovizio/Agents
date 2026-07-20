@@ -23,6 +23,7 @@ export type KnowledgeSource =
   | 'session_state'
   | 'shared_os_logical'
   | 'team_workflows'
+  | 'rag_bridge'
   | 'toon_context'
 
 export interface TaskProfile {

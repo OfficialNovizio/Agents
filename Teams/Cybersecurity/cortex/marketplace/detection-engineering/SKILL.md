@@ -9,6 +9,10 @@ fulfills_catalog_entry: detection-engineering — alert triage, detection rule m
 note_from_build: This is a verbatim marketplace adoption, unaltered. Covers alert triage, detection rule creation/tuning, false positive management, exception addition, attack discovery triage, entity risk assessment, and sample event generation for testing. Official Elastic skill. Supplementary detection use-cases available from mukul975's 817-skill collection.
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill Introduction 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "SOC alert triage, detection rule creation and tuning, false-positive management, and attack-discovery analysis for security operations"
+triggers: [detection engineering, alert triage, detection rule, tune false positives, attack discovery]
 ---
 
 # Elastic Security MCP — Detection Engineering

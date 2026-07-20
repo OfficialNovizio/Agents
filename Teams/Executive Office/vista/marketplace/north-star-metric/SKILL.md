@@ -13,6 +13,10 @@ portable: true — no company-specific content; original catalog entry's hardcod
 includes: references/nsm-playbook.md, references/nsm-framework-guide.md, references/red-flags.md, assets/nsm_spec_template.md, scripts/metric_tree_builder.py — copied in full
 pending: the source repo's examples/ file (1 file) could not be retrieved at copy time (GitHub directory listing unavailable); named here explicitly rather than silently omitted. The script's built-in --demo reproduces a worked example in the meantime.
 date_added: 2026-07-06
+# yvon-compile metadata (additive — body remains verbatim per marketplace convention)
+tier: 2
+description: "Defines a venture's North Star Metric with guardrail metrics and alert thresholds, including a metric-tree builder script; every NSM is defined per business at runtime"
+triggers: [north star metric, nsm, define our key metric, guardrail metrics]
 ---
 
 <!--

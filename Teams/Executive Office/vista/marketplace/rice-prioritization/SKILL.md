@@ -11,6 +11,10 @@ assigned_agent: vista (Executive Office / Roadmap Lead)
 portable: true — no company-specific content; goal, backlog, and calibration are always operator-supplied
 includes: README.md, references/rice.md, references/example.md, references/rice-prioritization-q3-backlog-2026-06-19.md (sample report, fictional data) — all pulled from source and copied in full
 date_added: 2026-07-06
+# yvon-compile metadata (additive — body remains verbatim per marketplace convention)
+tier: 2
+description: "Scores and ranks roadmap items with RICE — operator calibration, parallel per-item scoring, then a synthesized ranked report"
+triggers: [rice, rice score, prioritize backlog, rank features]
 ---
 
 <!--

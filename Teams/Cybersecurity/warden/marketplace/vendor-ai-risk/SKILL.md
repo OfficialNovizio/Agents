@@ -9,6 +9,10 @@ fulfills_catalog_entry: supplementary to third-party-risk — AI-specific vendor
 note_from_build: This is a verbatim marketplace adoption, supplementary to the primary Anthropic vendor-review. It adds a specialized 5-dimension AI vendor assessment covering security, privacy, AI-specific risks (training data, model behavior, output ownership), contractual protections, and regulatory compliance. Ships Quick Triage (5 min) and Deep Due Diligence modes with a 0-100 scorecard per dimension.
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "1. **Security** — infrastructure security, certifications, data handling, access controls 2."
+triggers: [vendor ai risk, is this ai vendor safe, what are the ai-specific risks, does this ai tool comply with our policies]
 ---
 
 # Vendor AI Risk Assessment

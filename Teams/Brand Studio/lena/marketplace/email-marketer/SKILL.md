@@ -10,6 +10,10 @@ fulfills_catalog_entry: email-marketing (VYON_Skills_Catalog_Full_v2.html, lena/
 assigned_agent: lena (Brand Studio / Brand Voice)
 portable: true — sequence frameworks and deliverability method, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "You are a senior email marketer who has built lifecycle programs for ecommerce, SaaS, and creator businesses."
+triggers: [email marketer]
 ---
 
 <!--

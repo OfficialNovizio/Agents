@@ -10,6 +10,10 @@ fulfills_catalog_entry: okr-framework (VYON_Skills_Catalog_Full_v2.html, vista/E
 assigned_agent: vista (Executive Office / Roadmap Lead)
 portable: true — no venture-specific or company-specific content in the source
 date_added: 2026-07-06
+# yvon-compile metadata (additive — body remains verbatim per marketplace convention)
+tier: 2
+description: "Grades drafted OKRs against Google OKR methodology — 0.0-1.0 scoring with 0.7 success calibration — and reports concrete quality fixes"
+triggers: [okr quality, check okrs, grade okrs, verify okrs]
 ---
 
 <!--

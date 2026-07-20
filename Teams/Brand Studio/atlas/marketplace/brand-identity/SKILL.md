@@ -11,6 +11,10 @@ assigned_agent: atlas (Brand Studio / Art Director)
 portable: true — stack-agnostic, tool-agnostic by the source's own design
 includes: references/identity-system-spec.md, references/contrast-and-accessibility.md — copied in full
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Design or evaluate the visual artifacts that express a brand: logo system, color, typography, imagery, iconography, and motion."
+triggers: [brand identity]
 ---
 
 <!--

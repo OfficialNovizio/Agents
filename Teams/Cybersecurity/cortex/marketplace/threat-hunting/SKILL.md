@@ -9,6 +9,10 @@ fulfills_catalog_entry: threat-hunting — hypothesis-driven proactive search (C
 note_from_build: This skill is adopted from the mukul975 Anthropic-Cybersecurity-Skills collection (817 skills, MITRE ATT&CK + NIST CSF mapped). Individual hunting playbooks are selected per use case — BloodHound CE, Velociraptor fleet hunting, Falco runtime detection, Kerberoasting detection, ADCS abuse detection, DPAPI credential access, Shadow Credentials, container escape, Kubernetes RBAC auditing, network packet analysis with Scapy, and others. The collection is a referenced pack, not vendored in full. Supplementary collection: gaoqiongxie cybersecurity-skills (754 skills, MITRE ATT&CK v19.1, NIST CSF 2.0, MITRE ATLAS v5.4).
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Sourced from:** mukul975 Anthropic-Cybersecurity-Skills collection (817 skills, MITRE ATT&CK + NIST CSF mapped)."
+triggers: [threat hunting, let's look for x, hunt for signs of y, are we compromised]
 ---
 
 # Threat Hunting

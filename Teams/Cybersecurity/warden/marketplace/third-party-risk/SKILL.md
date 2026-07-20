@@ -9,6 +9,10 @@ fulfills_catalog_entry: third-party-risk (CYBERSECURITY-REDESIGN-PLAN-v2 §1.3)
 note_from_build: This is a verbatim marketplace adoption. No content has been altered. The original Anthropic skill covers the full vendor assessment cycle — TCO cost analysis, risk assessment (financial stability, security/compliance, concentration, lock-in), performance metrics (SLA, support, uptime), and a comparison matrix. Output: Proceed / Negotiate / Pass recommendation with negotiation points.
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "If key information is missing — the team can't articulate what data the vendor would touch, or pricing is 'we haven't asked yet' — flag it."
+triggers: [third party risk]
 ---
 
 # Vendor Review

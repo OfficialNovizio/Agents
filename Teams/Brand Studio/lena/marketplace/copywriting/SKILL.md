@@ -10,6 +10,10 @@ fulfills_catalog_entry: copywriting-frameworks (VYON_Skills_Catalog_Full_v2.html
 assigned_agent: lena (Brand Studio / Brand Voice)
 portable: true — pure framework content, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Required:** None — Copywriting is a knowledge-based skill with no external dependencies."
+triggers: [copywriting, tired of slow builds?, every second wasted costs $x, introducing [product], our product is great, cut build time by 73% in 48 hours]
 ---
 
 <!--

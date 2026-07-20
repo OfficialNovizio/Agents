@@ -45,10 +45,10 @@ const CONTENT_PIPELINE: PipelineStage[] = [
  * @param venture - Venture context
  * @returns PipelineResult with pass/fail, stage outputs, and timing
  */
-export function executeContentPipeline(
+export async function executeContentPipeline(
   initialTask: string,
   venture: string = 'default',
-): ContentPipelineResult {
+): Promise<ContentPipelineResult> {
   const t0 = Date.now()
   const failures: string[] = []
   const results: PipelineStage[] = []
@@ -67,9 +67,10 @@ export function executeContentPipeline(
       const cie = buildCieContext(cieParams)
 
       // In production, this would call the LLM. For now, mark ready.
+      const resolved = await cie;
       const stageResult: PipelineStage = {
         ...stage,
-        output: `[${stage.stage}] — CIE context ready (${cie.itemsInjected} items, ${cie.totalChars} chars, ${Date.now() - stageStart}ms)`,
+        output: `[${stage.stage}] — CIE context ready (${resolved.itemsInjected} items, ${resolved.totalChars} chars, ${Date.now() - stageStart}ms)`,
       }
 
       results.push(stageResult)

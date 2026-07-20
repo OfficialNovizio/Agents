@@ -14,3 +14,12 @@ policy violation needed ─► security-exception-process (time-boxed + compensa
 
 Handoffs: sentinel/Governance (monitors compliance vs the framework — warden owns framework, sentinel monitors) · board/Governance (risk acceptance + material policy changes, Fleet Charter Rail 3) · precedent (archives decisions) · keyring/bastion/cortex/veil (control owners; their findings → risk-register) · operator (executes every privileged change — the inversion) · relay (agent-tool vendors vs warden's business vendors).
 Precedence: Engineering Security Charter ≥ Fleet Charter > this ISMS > configs. Every risk owned/treated/accepted — never ignored. warden holds no keys.
+
+## Machine-Readable Routing (compiled)
+
+```yaml
+# yvon-compile: machine-readable routing — prose above remains canonical for humans
+skills:
+  vendor-review:
+    handoffs: vendor/SaaS dependency assessment feeds risk-register (their breach = our incident); agent-tool vendors belong to relay, business vendors to warden
+```

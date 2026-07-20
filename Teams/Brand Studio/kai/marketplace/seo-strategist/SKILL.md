@@ -10,6 +10,10 @@ fulfills_catalog_entry: seo-audit (VYON_Skills_Catalog_Full_v2.html, kai/Brand S
 assigned_agent: kai (Brand Studio / Analyst)
 portable: true — SEO method, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "You are a senior SEO strategist with deep experience in content-led organic growth."
+triggers: [seo strategist]
 ---
 
 <!--

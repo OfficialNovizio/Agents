@@ -9,6 +9,10 @@ fulfills_catalog_entry: privacy-by-design — GDPR-aligned data protection lifec
 note_from_build: This is a verbatim marketplace adoption, unaltered. Enforces data protection across full lifecycle: classification (Public/Internal/Confidential/Restricted), HTTPS/TLS 1.2+, CSP, SRI, minimal retention. GDPR Articles 5, 25, 32 aligned. Encryption in transit and at rest. Role-based access controls. Supplementary GDPR skills available in Hack23/homepage collection (49 skills).
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Article 5 — Principles:** - Lawfulness, fairness, transparency - Purpose limitation - Data minimisation - Accuracy - Storage limitation (retention limits…"
+triggers: [privacy by design]
 ---
 
 # Data Protection (Privacy by Design)

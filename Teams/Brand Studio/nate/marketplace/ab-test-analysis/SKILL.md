@@ -10,6 +10,10 @@ fulfills_catalog_entry: ab-testing-stats (VYON_Skills_Catalog_Full_v2.html, nate
 assigned_agent: nate (Brand Studio / Growth)
 portable: true — pure statistical method, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Evaluate A/B test results with statistical rigor and translate findings into clear product decisions."
+triggers: [ab test analysis]
 ---
 
 <!--

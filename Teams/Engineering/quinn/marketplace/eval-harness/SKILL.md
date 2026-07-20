@@ -11,6 +11,10 @@ provenance:
     security-relevant evals route to aegis for human/agent review (source's "human review for
     security" rule, mapped). Boundaries section added. Method and metrics unchanged.
 assigned_agent: quinn (Engineering / QA)
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Eval-driven development (EDD): evals are the unit tests of AI-assisted work."
+triggers: [eval harness]
 ---
 
 # Eval Harness

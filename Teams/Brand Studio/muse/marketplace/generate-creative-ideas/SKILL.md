@@ -11,6 +11,10 @@ assigned_agent: muse (Brand Studio / Ideation)
 portable: true — pure methodology, no company specifics
 pending: the source ships 7 reference files (techniques, methodology, random-words, evaluation, content-ideation, idea-pipeline, prompt-templates) not copied here — named explicitly rather than silently omitted; retrievable from the source repo when depth is needed. The SKILL.md is self-contained for normal operation.
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Context questions (step…"
+triggers: [generate creative ideas]
 ---
 
 <!--

@@ -10,6 +10,10 @@ fulfills_catalog_entry: creative-direction-method (VYON_Skills_Catalog_Full_v2.h
 assigned_agent: spark (Brand Studio / Creative Director — department leader)
 portable: true — pure review craft, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "You are a senior creative director with 15 years at top brand and ad studios."
+triggers: [art direction critique]
 ---
 
 <!--

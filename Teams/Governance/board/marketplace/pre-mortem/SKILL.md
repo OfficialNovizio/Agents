@@ -11,6 +11,10 @@ fulfills_catalog_entry: pre-mortem (VYON_Skills_Catalog_Full_v2.html, board/Gove
 assigned_agent: board (Governance / Governance Gate)
 portable: true — no company-specific content; project/decision under review is always operator-supplied
 date_added: 2026-07-06
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "> Imagine your project has failed spectacularly—then work backward to identify why."
+triggers: [pre mortem]
 ---
 
 <!--

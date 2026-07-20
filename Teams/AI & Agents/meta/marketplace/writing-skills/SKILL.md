@@ -8,6 +8,10 @@ fulfills_catalog_entry: none direct — adopted to ground meta's skill-authoring
 assigned_agent: meta (AI & Agents / Fleet Architect, department leader)
 portable: true
 date_added: 2026-07-10
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Writing skills IS Test-Driven Development applied to process documentation.** **Personal skills live in your runtime's skills directory** — see…"
+triggers: [writing skills]
 ---
 
 <!--

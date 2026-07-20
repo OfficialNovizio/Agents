@@ -9,6 +9,10 @@ fulfills_catalog_entry: policy framework base for identity-lifecycle and access-
 note_from_build: This is a verbatim marketplace adoption. No content has been altered. Provides the ISO 27001-aligned RBAC/least-privilege/MFA policy framework, 6-tier access control matrix, zero-trust architecture, dormant account detection, and quarterly review procedures. Referenced by keyring's custom identity-lifecycle and access-reviews skills as the policy layer.
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Reviews verify that each grant is still needed, identify and revoke unused or excessive access, and detect dormant or orphaned accounts."
+triggers: [access control policy]
 ---
 
 # Access Control Policy

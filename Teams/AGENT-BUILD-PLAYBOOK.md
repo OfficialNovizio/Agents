@@ -331,10 +331,15 @@ fulfills_catalog_entry: <original catalog name, if it maps to one>
 assigned_agent: <agent-name> (<Department> / <role>)
 portable: true|false                        # flag any remaining hardcoded specifics
 date_added: <date>
+# yvon-compile metadata (see §14) — required for marketplace copies, optional
+# overrides for custom skills whose sections already carry this information:
+tier: 1|2|3|4                               # 1 router · 2 advisory · 3 config-dependent · 4 build/exec
+description: "<one line with routing hints>"
+triggers: [phrase one, phrase two, ...]
 ---
 ```
 
-Body structure for custom skills: Introduction, Purpose, When to Use, Structure/Protocol, Instructions (phase by phase), Output Format, Principles, Fallback, Boundaries with Other Skills. Marketplace copies keep the source's own structure, with a comment block up top explaining why it was selected and what catalog entry it fulfills.
+Body structure for custom skills: Introduction, Purpose, When to Use, Structure/Protocol, Instructions (phase by phase), Output Format, Principles, Fallback, Boundaries with Other Skills. **These headings are parsed by the compiler (§14) — use them exactly**; a skill with creative headings compiles hollow. Marketplace copies keep the source's own structure, with a comment block up top explaining why it was selected and what catalog entry it fulfills — and receive the compile metadata keys above in frontmatter only (body stays verbatim).
 
 ---
 
@@ -342,7 +347,7 @@ Body structure for custom skills: Introduction, Purpose, When to Use, Structure/
 
 If you only remember one ordering, remember this:
 
-1. Department → 2. Agent → 3. Discuss skill list → 4. Sort marketplace/custom, **default to marketplace first** → 5. Marketplace skills (search by purpose, present sources, **stop**, then copy, one at a time) → 6. Custom skills (discuss design + tools/scripts, build one at a time) → 7. Identity (leader agent only, one persona) → 8. Operational — **check which of the five subfolders actually apply to this agent, prioritize the most load-bearing one first, skip any that would come out empty**, build one at a time, each with a pre-build discussion → 9. Logical **placeholder** (record the flagged 0.6 judgments + candidate book — see §8's two-touch note) → 10. agent.md (kept current throughout) → 11. Department workflow file (only once the whole department is done) → repeat for the next agent.
+1. Department → 2. Agent → 3. Discuss skill list → 4. Sort marketplace/custom, **default to marketplace first** → 5. Marketplace skills (search by purpose, present sources, **stop**, then copy, one at a time) → 6. Custom skills (discuss design + tools/scripts, build one at a time) → 7. Identity (leader agent only, one persona) → 8. Operational — **check which of the five subfolders actually apply to this agent, prioritize the most load-bearing one first, skip any that would come out empty**, build one at a time, each with a pre-build discussion → 9. Logical **placeholder** (record the flagged 0.6 judgments + candidate book — see §8's two-touch note) → 10. agent.md (kept current throughout) → 11. Department workflow file (only once the whole department is done) → **12. Compile + reindex (§14): `node cli/skillgen.js <agent>` — zero FILL_INs — then `cd rag && python3 core/chunkify.py --all`; add the routing row to root `CLAUDE.md` §2** → repeat for the next agent.
 
 **Skills come first; logical is a later pass.** You cannot ground judgments that don't exist yet — a skill defines the decisions the agent makes, and only then can §8 know what needs a formula. So during the build, logical is just a placeholder (step 9). The real grounding — Step-Zero classification, extraction, and A/B/C/D artifacts — runs later, when a source book arrives, across every agent that book touches (see §8 and `LOGICAL-SYNTHESIS-PLAN.md`). The one exception: if the source is already in hand at build time, the script can be built *with* the skill (per 5.2), the way van Westendorp and risk-score scripts were.
 
@@ -373,3 +378,82 @@ At every arrow: present what's about to be built, wait for approval, build exact
   - **Books produce scripts or cited .md files.** The synthesis pipeline (§8.3) produces Python scripts with self-tests for anything with formulas (Routes A/B/C). Route D (practitioner-operator wisdom, §8.9) may produce a cited .md file instead — qualitative extracts with chapter/page references. The script IS the documentation for mathematical extractions — inline docstrings carry book/section/page citations.
   - **Cross-agent scripts don't get copied.** If vista's roadmap-sync needs forecasting formulas, it imports `Shared OS/logical/forecasting.py` — it does not get its own copy. This is the same rule as §13.1 applied to the logical layer.
   - **Shared OS/logical/ is the system of record.** When a script is updated (bug fix, new edition of the book), every agent that imports it gets the fix automatically. This was the original intent of §8.7's "extract once, cite many" — now enforced at the file level.
+
+---
+
+## 14. The Compile Layer (added 2026-07-20)
+
+Teams/ is the single source of truth; `dist/skills/` is compiled, disposable output. The compiler (`cli/skillgen.js`) reads each agent's sources and emits runtime skills with uniform frontmatter, tier-matched preambles (scope announcement, ground rules, config checks, retrieval), Voice from identity, and a Completion postamble that logs outcomes to `store/telemetry/`. Template + preamble fragments live in `Shared OS/skills/skill-template/`.
+
+**14.1 — Never edit dist/. Never put compiled files in Teams/.** dist/ is overwritten on every compile. Compiled copies inside Teams/ would double-index in the RAG store and create false Gate-3 conflicts. Edit the source, recompile.
+
+**14.2 — Exact headings are contract.** The compiler parses `## Purpose`, `## When to Use`, `## Structure / Protocol`, `## Output Format` literally (§11). Marketplace copies are exempt (their whole body compiles as protocol) but must carry the compile metadata keys in frontmatter: `tier`, `description`, `triggers`.
+
+**14.3 — Tier declaration.** `tier:` in source frontmatter wins; omitted → custom=3, marketplace=2. Tiers: 1 router (scope+log) · 2 advisory (+ground rules, confusion protocol) · 3 config-dependent (+loud `<FILL_IN>` detection) · 4 build/exec (+CAOS retrieval, TASK-SPEC slice, owns-paths).
+
+**14.4 — Tool-requirements table format is fixed.** `| Skill | Required | Optional | Source line |`, the Skill cell matching the skill's directory name (a parenthetical suffix is tolerated). Recognized phrases: "File read", "File write", "File read/write", "Python/shell execution", "web search", "second model". Anything else compiles as a loud `FILL_IN` tools entry — which means the skill ships without its tools until the table is fixed.
+
+**14.5 — Routing files end with the machine-readable block.** Every `operational/skill/<agent>-skill-routing.md` closes with a fenced yaml block opening `# yvon-compile:` listing each skill's `handoffs:` line. Prose above stays canonical for humans; the block is what compiles exactly. Without it the compiler falls back to line-matching heuristics — working, but luck.
+
+**14.6 — Identity compiles from `## Core Traits`.** Department-leader-only rule unchanged (§7). That exact heading in the identity file is what becomes the compiled Voice section across all the leader's skills.
+
+**14.7 — Config `<FILL_IN>`s are debts.** Tier-3+ preambles announce every unfilled config field on every invocation until it is filled or marked `n/a` with a one-line reason. Do not ship an agent and forget its config.
+
+**14.8 — The build loop ends with compile + reindex + toonify.** After any change to a skill, routing, tool, or identity file: `node cli/skillgen.js <agent>` and confirm zero unresolved placeholders and no unexpected FILL_INs, then `cd rag && python3 core/chunkify.py --all` so retrieval indexes the new source, then `node cli/toonify.js --agent <agent-id>` per §0.8 so CIE can read the updated sources. A skill that has not compiled clean is not built (this extends the §12 checklist).
+
+**14.9 — New department checklist.** Department folder + `DEPARTMENT-WORKFLOW.md` + standard agent structure (§6) as before, PLUS: a routing row in root `CLAUDE.md` §2 (an agent missing from the rail is invisible at runtime), and if the department leader holds identity, the `## Core Traits` heading per 14.6.
+
+**14.10 — Orchestration touchpoints.** Multi-agent work routes through meta's `task-dispatch` skill: discovery once, work items as contracts (consumes/produces/owns_paths), DAG not blind-parallel, per-item FAST/BALANCE budgets, sharding (a worker sees only its slice). Spec instances live in `store/tasks/` per `TEMPLATE.yaml`. Compiled skills log invocations and outcomes automatically; honest `partial`/`blocked` outcomes are how anneal improves your skill later — a false "done" poisons the loop.
+
+---
+
+## 15. Metrics & Health (added 2026-07-20)
+
+What "performing well" means, what to measure, which tools measure it, and the exact commands. Builders' duty is small: log honest outcomes, keep compile and config debt at zero. The measurement machinery below does the rest — gauge measures, anneal proposes (Monday scheduled run), the operator approves.
+
+**15.1 — Per-skill runtime metrics.** Source: `store/telemetry/skill-invocations.jsonl` — every compiled skill logs an invocation event (preamble) and a completion event with outcome `done | partial | blocked` (postamble). What the numbers mean:
+
+  - **Invocations high, completions `partial`/`blocked`** → the skill's protocol is broken or its config is unfilled. Anneal finding: fix the source.
+  - **Never invoked** → trigger problem (description/triggers don't match how the operator actually asks) or dead weight. Anneal finding: rewrite triggers or retire.
+  - **Completion ratio trend** is the skill's health line over weeks — visible per agent on the dashboard `/agents` page.
+  - Honest `partial`/`blocked` outcomes are how skills improve; a false `done` poisons the loop (§14.10).
+
+**15.2 — Retrieval metrics.** Source: chunk quality scores in the vector store, updated by the feedback loop (`quality_new = quality_old × 0.95 + outcome × 0.05`). If an agent's sources never surface in retrieval, the content is unreachable no matter how good it is — check after every chunkify rebuild that the agent's key files appear for its own domain queries (retriever test, command below). The agent bonus (+0.15 for own files) makes an agent's skills compete with book wisdom — if they still don't surface, triggers/content need work.
+
+**15.3 — Quality evaluation.** Three layers, in order of formality:
+
+  - **Acceptance criteria** — per work item in the TASK-SPEC (`acceptance:` list). gauge sets the bar; quinn (or the department's verifier) holds the exit gate. Nothing ships on self-assessment.
+  - **LLM-as-judge** — `rag/eval/judge.py` scores an output on 6 metrics; `rag/eval/flywheel.py` runs the 5-stage improvement loop (score → cluster failures → propose → retest). A department isn't "done" until its skills have been through at least one judged run.
+  - **Field monitoring** — `rag/monitor/watcher.py` watches for attractors (over-retrieved chunks), degradation, coverage gaps, and drift; `rag/monitor/improver.py` runs the weekly analyze → propose → sandbox-test → deploy cycle for pipeline settings (auto-deploys only if all tests pass; anything failing → hold + report).
+
+**15.4 — Mechanical health checks.** Run these; do not eyeball:
+
+  - **Compile cleanliness** — zero unresolved placeholders, no unexpected FILL_IN tool entries (skillgen prints per skill).
+  - **Config debt** — count of `<FILL_IN>` fields per agent config; announced by every tier-3+ preamble, shown fleet-wide on `/agents`. Debt of 0 or explicit `n/a` is the only acceptable steady state.
+  - **Toonify coverage** — every .md has a .toon (§0.8) or CIE reads nothing.
+  - **Index freshness** — chunks.json rebuilt after any source change (§14.8); stale index = agents reasoning on old versions of their own skills.
+  - **Fleet pulse** — `yvon doctor` for the all-up check; `verify-caos.py --quick` for the pipeline end-to-end.
+
+**15.5 — Capabilities & command reference (verified against the CLIs):**
+
+| Capability | Command | What it tells you |
+|---|---|---|
+| Fleet health check | `node cli/yvon.js doctor` | All-up ✅/❌ across engine components |
+| List the fleet | `node cli/yvon.js agents` | 46 agents × 7 departments roster |
+| Knowledge graphs | `node cli/yvon.js graph` | Rebuilds code + Teams graph reports |
+| Live dashboard | `node cli/yvon.js dashboard` (or `cd dashboard && npm run dev`) | Brands, `/agents` observability, Monitor |
+| Compile an agent's skills | `node cli/skillgen.js <agent>` | Per-skill tier/version/tools + FILL_IN warnings |
+| Rebuild the index | `cd rag && python3 core/chunkify.py --all` (`--status` to inspect) | Chunk counts per file; index freshness |
+| Retrieval spot-check | `cd rag && python3 -c "...retrieve('<task>', agent_id='<a>', agent_dept='<d>')..."` (full snippet in root `CLAUDE.md` §4) | Which sources actually surface for a query |
+| Pipeline end-to-end | `python3 cli/verify-caos.py --quick` | 5-point smoke: retrieval, injection, formulas, feedback |
+| Full test suite | `npm test` / `cd rag && python3 test_runner.py` | 285+ tests across 15 modules |
+| Judge an output | `cd rag && python3 eval/judge.py --grade <json>` (`--test` self-tests) | 6-metric quality score |
+| Improvement flywheel | `cd rag && python3 eval/flywheel.py` | Score → cluster failures → propose → retest |
+| Field monitor report | `cd rag && python3 monitor/watcher.py --report` | Attractors, degradation, coverage gaps, drift |
+| Weekly self-improvement | `cd rag && python3 monitor/improver.py --run` | Pipeline-setting proposals; sandbox-tested deploys |
+| Feedback loop ops | `cd rag && python3 core/feedback.py <cmd>` | Log/inspect outcome-driven quality updates |
+| TOON compression | `node cli/toonify.js --agent <agent-id>` | .toon coverage for CIE (§0.8) |
+| Telemetry raw | `cat store/telemetry/skill-invocations.jsonl` | Every invocation + outcome, JSONL |
+| Weekly improvement review | scheduled task `yvon-anneal-weekly` (Mon 9am) | anneal's evidence-based proposals, `store/telemetry/anneal-report-<date>.md` |
+
+**15.6 — Reading the numbers is a role, not a habit.** gauge owns thresholds and benchmarks; anneal owns proposals from evidence; scout owns replacing weak skills with better sourced ones; meta approves structural changes; the operator approves everything that touches a source file. A builder who ships a skill, watches its first week of telemetry, and files one honest observation has done their part.

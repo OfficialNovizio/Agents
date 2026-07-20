@@ -48,3 +48,20 @@ Route to the skill matching the request's **primary, most specific ask** first. 
 ## Fallback
 
 If a request doesn't fit anywhere in the chain and doesn't fit strategy-advisor's general-purpose scope either, don't force it into the nearest skill — say so and ask what's actually being asked, per each individual skill's own Phase 1 guidance to clarify rather than guess.
+
+## Machine-Readable Routing (compiled)
+
+```yaml
+# yvon-compile: machine-readable routing — prose above remains canonical for humans
+skills:
+  vision-exploration:
+    handoffs: upstream of okr-cascade — if no vision exists yet, run this first
+  okr-cascade:
+    handoffs: consumes vision-exploration output; feeds venture-priority-matrix via okr_alignment
+  venture-priority-matrix:
+    handoffs: populate okr_alignment from okr-cascade's latest output, else default 1.0 and flag
+  decision-critic:
+    handoffs: stress-tests the finalized plan/decision from any upstream skill before commit
+  strategy-advisor:
+    handoffs: standalone entry for open strategic questions; hand into the chain once concrete
+```

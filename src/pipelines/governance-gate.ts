@@ -43,11 +43,11 @@ const GATE_SEQUENCE = [
  * In production, each gate calls the LLM with CIE context and parses the response.
  * For now, returns the structured review pipeline that CIEs will use.
  */
-export function executeGovernanceReview(
+export async function executeGovernanceReview(
   decisionId: string,
   decisionDescription: string,
   venture: string = 'default',
-): GovernanceReview {
+): Promise<GovernanceReview> {
   const t0 = Date.now()
   const log: string[] = []
   const gates: GateResult[] = []
@@ -55,7 +55,7 @@ export function executeGovernanceReview(
   // Step 1: Retrieve precedent (top-3 prior rulings)
   log.push(`[${decisionId}] Precedent retrieval requested`)
   try {
-    const precedentCtx = buildCieContext({
+    const precedentCtx = await buildCieContext({
       agentId: 'precedent', task: decisionDescription, venture,
     })
     log.push(`[${decisionId}] Precedent: ${precedentCtx.itemsInjected} items retrieved`)
@@ -68,7 +68,7 @@ export function executeGovernanceReview(
     const gateStart = Date.now()
 
     try {
-      const cieCtx = buildCieContext({
+      const cieCtx = await buildCieContext({
         agentId: 'board', task: `${gate.label}: ${decisionDescription}`, venture,
       })
 

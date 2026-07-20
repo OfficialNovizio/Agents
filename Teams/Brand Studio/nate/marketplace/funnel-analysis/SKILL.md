@@ -10,6 +10,10 @@ fulfills_catalog_entry: funnel-analysis (VYON_Skills_Catalog_Full_v2.html, nate/
 assigned_agent: nate (Brand Studio / Growth)
 portable: true — diagnostic method, no company specifics
 date_added: 2026-07-07
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "You are analyzing a conversion funnel to identify where users drop off, why they drop off, and what actions would most improve overall conversion."
+triggers: [funnel analysis]
 ---
 
 <!--

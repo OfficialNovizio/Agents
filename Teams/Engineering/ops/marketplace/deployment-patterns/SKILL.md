@@ -13,6 +13,10 @@ provenance:
     operator-run (Rail 3). Boundaries added; conflicts resolve to release-discipline.
 assigned_agent: ops (Engineering / DevOps & Reliability)
 volatility: tool/platform syntax dated 2026-07 — re-verify playbook snippets >6 months old
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "Production deployment workflows and CI/CD best practices."
+triggers: [deployment patterns]
 ---
 
 # Deployment Patterns

@@ -9,6 +9,10 @@ fulfills_catalog_entry: cloud-posture — CSPM misconfig detection (CYBERSECURIT
 note_from_build: This is a verbatim marketplace adoption, unaltered. Covers multi-cloud CSPM (AWS, Azure, GCP) with Prowler, ScoutSuite, AWS Security Hub, Azure Defender. CIS Benchmarks compliance. The "bastion detects/operator remediates" inversion is enforced at the principles layer, not in the skill body.
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Supported Standards:** - CIS AWS Foundations Benchmark - PCI DSS - NIST SP 800-53 - AWS Foundational Security Best…"
+triggers: [cloud posture, is our cloud secure, check for misconfigs, public bucket, open port, over-permissive iam]
 ---
 
 # Cloud Security Posture Management (CSPM)

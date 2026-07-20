@@ -9,6 +9,10 @@ fulfills_catalog_entry: secrets-governance (CYBERSECURITY-REDESIGN-PLAN-v2 §2.4
 note_from_build: This is a verbatim marketplace adoption, unaltered. Covers HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, GCP Secret Manager, and Kubernetes Secrets. Ships actual Vault configuration examples (raft storage, TLS setup), AWS Lambda rotation scripts, and tool-specific guidance the custom version lacked. The "keyring holds no keys" inversion is enforced at the principles layer, not in the skill body.
 portable: true
 date_added: 2026-07-12
+# yvon-compile metadata (auto-derived from skill content 2026-07-20 — review welcome; body verbatim)
+tier: 2
+description: "**Basic Vault Setup:** ```bash # Start Vault in development mode (never for production) vault server…"
+triggers: [secrets governance]
 ---
 
 # Secrets Management

@@ -48,3 +48,18 @@ See `operational/commands/echo-commands.md` for the two specific precedence rule
 ## Fallback
 
 If a request doesn't fit anywhere in this map, ask what's actually being asked rather than forcing it into the nearest skill — consistent with each skill's own Phase 1 guidance.
+
+## Machine-Readable Routing (compiled)
+
+```yaml
+# yvon-compile: machine-readable routing — prose above remains canonical for humans
+skills:
+  pitch-narrative:
+    handoffs: pitch-framework pulls the current narrative from here; run first if stale or missing
+  pitch-framework:
+    handoffs: deck production — never drafts narrative independently of pitch-narrative
+  investor-update-template:
+    handoffs: normal entry for monthly/quarterly updates; uses investor-update-generator internally
+  investor-update-generator:
+    handoffs: direct use only to validate drafts written outside the template workflow; must stay factually consistent with pitch-narrative
+```
